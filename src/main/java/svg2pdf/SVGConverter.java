@@ -30,7 +30,7 @@ public class SVGConverter {
 
 	public static void main(String[] args) throws Exception {
 
-		URI svgpath = SVGConverter.class.getResource("/A42233.svg").toURI();
+		URI svgpath = SVGConverter.class.getResource("/test.svg").toURI();
 		File svgFile = new File(svgpath);
 
 		String name = svgFile.getName();
