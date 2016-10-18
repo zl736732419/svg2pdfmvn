@@ -283,7 +283,7 @@ public class SVGConverterUtil {
 	
 	public static void main(String[] args) throws Exception {
 
-		File svgFile = new File("D:\\workspace\\svg2pdfmvn\\resources\\test.svg");
+		File svgFile = new File("D:\\workspace\\svg2pdfmvn\\resources\\test1.svg");
 
 		String name = svgFile.getName();
 		name = name.substring(0, name.lastIndexOf("."));
