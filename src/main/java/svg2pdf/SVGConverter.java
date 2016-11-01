@@ -29,14 +29,10 @@ import org.apache.fop.svg.PDFTranscoder;
 public class SVGConverter {
 
 	public static void main(String[] args) throws Exception {
-
-		URI svgpath = SVGConverter.class.getResource("/test.svg").toURI();
-		File svgFile = new File(svgpath);
-
-		String name = svgFile.getName();
-		name = name.substring(0, name.lastIndexOf("."));
-		SVGConverter converter = new SVGConverter();
-		converter.svg2PDF(svgFile, new File("D:/" + name + "_SVG文件转PDF.pdf"));
+		long start = System.currentTimeMillis();
+		createSvgPdf("/test.svg");
+		createSvgPdf("/test1.svg");
+		System.out.println((System.currentTimeMillis() - start) / 1000 + "s");
 		// converter.svg2PNG(svgFile, new File("D:/"+name+"_SVG文件转PNG.PNG"));
 		// converter.svg2JPEG(svgFile, new File("D:/" + name +
 		// "_SVG文件转JPG.jpg"));
@@ -45,6 +41,16 @@ public class SVGConverter {
 		// converter.svg2PDF(svgCode, "D:/" + name + "_SVG代码转PDF.pdf");
 		// converter.svg2PDF(svgCode, new FileOutputStream(new File("D:/" + name
 		// + "_SVG代码转输出流.pdf")));
+	}
+
+	private static void createSvgPdf(String filePath) throws Exception {
+		URI svgpath = SVGConverter.class.getResource(filePath).toURI();
+		File svgFile = new File(svgpath);
+
+		String name = svgFile.getName();
+		name = name.substring(0, name.lastIndexOf("."));
+		SVGConverter converter = new SVGConverter();
+		converter.svg2PDF(svgFile, new File("D:/" + name + "_SVG文件转PDF.pdf"));		
 	}
 
 	/**
